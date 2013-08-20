@@ -4,4 +4,5 @@ out/
 .idea
 src/META-INF/
 TicTacToe.iml
+target/
 
