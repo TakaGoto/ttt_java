@@ -19,11 +19,11 @@ public class UiMock implements UserInterface {
     }
 
     public String askPlayerOneOption() {
-        return "h";
+        return "human";
     }
 
     public String askPlayerTwoOption() {
-        return "h";
+        return "human";
     }
 
     public int askBoardOption() {

@@ -93,15 +93,21 @@ public class GameTest {
     }
 
     @Test public void returnsComputerPlayer(){
-        Player player = game.determinePlayer("c", 'X');
+        Player player = game.determinePlayer("computer", 'X');
         assertEquals('X', player.getMark());
+        assertEquals(false, player.isHuman());
+    }
+
+    @Test public void returnsHumanPlayer(){
+        Player player = game.determinePlayer("human", 'X');
+        assertEquals(true, player.isHuman());
     }
 
     @Test public void gameTakeInDataAndMakeAppropriateMoves() {
         Hashtable<String, String> settings = new Hashtable<String, String>();
         settings.put("board", "_________");
-        settings.put("playerOne", "h");
-        settings.put("playerTwo", "c");
+        settings.put("playerOne", "human");
+        settings.put("playerTwo", "computer");
         settings.put("boardSize", "3");
         Board board = Game.playGame(ui, settings, "5");
         assertEquals("____X____", board.getSlots());
@@ -110,8 +116,8 @@ public class GameTest {
     @Test public void gameTakeInDataAndMakeAppropriateMovesForPlayerTwo() {
         Hashtable<String, String> settings = new Hashtable<String, String>();
         settings.put("board", "X________");
-        settings.put("playerOne", "h");
-        settings.put("playerTwo", "h");
+        settings.put("playerOne", "human");
+        settings.put("playerTwo", "human");
         settings.put("boardSize", "3");
         Board board = Game.playGame(ui, settings, "5");
         assertEquals("X___O____", board.getSlots());
@@ -120,8 +126,8 @@ public class GameTest {
     @Test public void computerMakesMoveWhilePlayingGame() {
         Hashtable<String, String> settings = new Hashtable<String, String>();
         settings.put("board", "_________");
-        settings.put("playerOne", "c");
-        settings.put("playerTwo", "h");
+        settings.put("playerOne", "computer");
+        settings.put("playerTwo", "human");
         settings.put("boardSize", "3");
         Board board = Game.playGame(ui, settings, "");
         assertEquals("X________", board.getSlots());
@@ -130,8 +136,8 @@ public class GameTest {
     @Test public void computerVsComputerMakingMoves() {
         Hashtable<String, String> settings = new Hashtable<String, String>();
         settings.put("board", "_________");
-        settings.put("playerOne", "c");
-        settings.put("playerTwo", "c");
+        settings.put("playerOne", "computer");
+        settings.put("playerTwo", "computer");
         settings.put("boardSize", "3");
         Board board = Game.playGame(ui, settings, "1");
         assertEquals("X________", board.getSlots());

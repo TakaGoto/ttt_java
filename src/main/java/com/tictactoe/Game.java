@@ -56,7 +56,7 @@ public class Game {
 
     public Player determinePlayer(String input, char mark) {
         Player player;
-        if(input.equals("h")) player = new HumanPlayer(mark);
+        if(input.equals("human")) player = new HumanPlayer(mark);
         else player = new ComputerPlayer(mark);
         return player;
     }
