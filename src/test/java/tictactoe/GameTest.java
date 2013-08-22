@@ -142,4 +142,14 @@ public class GameTest {
         Board board = Game.playGame(ui, settings, "1");
         assertEquals("X________", board.getSlots());
     }
+
+    @Test public void gameCanPassInEmptyStringMoveForHuman() {
+        Hashtable<String, String> settings = new Hashtable<String, String>();
+        settings.put("board", "_________");
+        settings.put("playerOne", "human");
+        settings.put("playerTwo", "computer");
+        settings.put("boardSize", "3");
+        Board board = Game.playGame(ui, settings, "");
+        assertEquals("_________", board.getSlots());
+    }
 }

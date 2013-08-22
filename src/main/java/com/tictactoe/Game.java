@@ -129,7 +129,7 @@ public class Game {
         Game game = new Game(ui, settings);
         Player player = findPlayer(game);
         if(game.board.isEmpty() && player.isHuman()) {
-            game.board.setMove(player.getMark(), Integer.parseInt(move));
+            game.board.setMove(player.getMark(), move);
         } else if(game.getBoardLogic().isOver()) {
             game.ui.displayResult(game.result());
         } else {

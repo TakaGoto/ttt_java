@@ -87,4 +87,22 @@ public class BoardTest {
         board.setMove('X', 5);
         assertEquals(false, board.isEmpty());
     }
+
+    @Test public void validateMoveIsValid() {
+        assertEquals(true, board.moveIsValid(5));
+    }
+
+    @Test public void validateMoveIsNotValid() {
+        assertEquals(false, board.moveIsValid(500));
+    }
+
+    @Test public void setMoveWithStringAsNumber() {
+        board.setMove('X', "5");
+        assertEquals("____X____", board.getSlots());
+    }
+
+    @Test public void setMoveDoesntWorkWithNullString() {
+        board.setMove('X', "");
+        assertEquals("_________", board.getSlots());
+    }
 }

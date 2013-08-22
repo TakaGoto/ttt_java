@@ -17,7 +17,7 @@ public class Board {
 
     public void setMove(char mark, int index) {
         StringBuilder newSlots = new StringBuilder(slots);
-        newSlots.setCharAt(index-1, mark);
+        newSlots.setCharAt(index - 1, mark);
         slots = newSlots.toString();
     }
 
@@ -55,5 +55,16 @@ public class Board {
 
     public boolean isEmpty() {
         return slots.replaceAll("[_]", "").length() == 0;
+    }
+
+    public boolean moveIsValid(int move) {
+        int boardLength = (int) Math.pow(length, 2);
+        if(move > boardLength || move < 1) return false;
+        else return true;
+    }
+
+    public void setMove(char mark, String move) {
+        if(!(move == ""))
+            setMove(mark, Integer.parseInt(move));
     }
 }
