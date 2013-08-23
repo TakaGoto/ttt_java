@@ -162,4 +162,14 @@ public class GameTest {
         Board board = Game.playGame(ui, settings, "");
         assertEquals("X________", board.getSlots());
     }
+
+    @Test public void gameShouldNotBeOverWhenItIsNot() {
+        Hashtable<String, String> settings = new Hashtable<String, String>();
+        settings.put("board", "X________");
+        settings.put("playerOne", "computer");
+        settings.put("playerTwo", "human");
+        settings.put("boardSize", "3");
+        Board board = Game.playGame(ui, settings, "");
+        assertEquals("X________", board.getSlots());
+    }
 }
