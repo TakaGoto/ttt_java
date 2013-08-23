@@ -121,8 +121,12 @@ public class Game {
     }
 
     private void makeMove(Player player, String move) {
-        if(player.isHuman()) board = player.move(board, Integer.parseInt(move));
-        else board = player.move(board, 0);
+        if(!(move == "")) {
+            if(player.isHuman())
+                board = player.move(board, Integer.parseInt(move));
+            else
+                board = player.move(board, 0);
+        }
     }
 
     public static Board playGame(UserInterface ui, Hashtable<String, String> settings, String move) {
